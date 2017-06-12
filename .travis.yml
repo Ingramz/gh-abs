@@ -5,7 +5,7 @@ before_install:
 - docker pull base/archlinux:latest
 
 script:
-- docker run -v $(pwd):/repo -v /work:/pkgtmp -i -t base/archlinux:latest /bin/sh -c "cp -R /repo /pkgtmp && makepkg -s && useradd -u 1000 -d /home/makepkg -m makepkg && chown -R makepkg /work /home/makepkg && pacman -Syu --noconfirm && su -l makepkg -c 'git config --global user.name Make Pkg' && su -l makepkg -c 'git config --global user.email example@example.com' && su -l makepkg -c 'whoami && cd /pkgtmp && makepkg --noconfirm -si && mksrcinfo'"
+- docker run -v $(pwd):/repo -v /work:/pkgtmp -i -t base/archlinux:latest /bin/sh -c "cp -R /repo /pkgtmp && useradd -u 1000 -d /home/makepkg -m makepkg && chown -R makepkg /work /home/makepkg && pacman -Syu --noconfirm && su -l makepkg -c 'git config --global user.name Make Pkg' && su -l makepkg -c 'git config --global user.email example@example.com' && su -l makepkg -c 'cd /pkgtmp && makepkg --noconfirm -si && mksrcinfo'"
 
 deploy:
   provider: pages
