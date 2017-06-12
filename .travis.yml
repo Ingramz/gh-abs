@@ -12,7 +12,8 @@ script:
   docker run -v $(pwd):/repo -v /work:/work -i -t base/archlinux:latest /bin/sh -c "useradd -u 1000 -d /home/makepkg -m makepkg && chown -R makepkg /work /home/makepkg && pacman -Syu --noconfirm && pacman -S --needed --noconfirm base-devel git && echo 'makepkg ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers && su -l makepkg -c 'git config --global user.name Make Pkg' && su -l makepkg -c 'git config --global user.email example@example.com' && su -l makepkg -c 'ls -als /work && ls -als /work/* && cd /work && makepkg --noconfirm -si'"
 - sudo rm -rf /out
 - sudo mkdir /out
-- sudo echo "Simple test" > /out/index.html
+
+- sudo sh -c "echo 'Simple test' > /out/index.html"
 - sudo mv /work/*.tar.gz /out
 
 deploy:
