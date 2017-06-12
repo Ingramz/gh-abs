@@ -1,3 +1,5 @@
+sudo: required
+
 services:
   - docker
 
@@ -5,8 +7,8 @@ before_install:
 - docker pull base/archlinux:latest
 
 script:
-- mkdir -p /work
-- cp -a . /work
+- sudo mkdir -p /work
+- sudo cp -a . /work
 - docker run -v $(pwd):/repo -v /work:/work -i -t base/archlinux:latest /bin/sh -c "useradd -u 1000 -d /home/makepkg -m makepkg && chown -R makepkg /work /home/makepkg && pacman -Syu --noconfirm && pacman -S --needed --noconfirm base-devel git && su -l makepkg -c 'git config --global user.name Make Pkg' && su -l makepkg -c 'git config --global user.email example@example.com' && su -l makepkg -c 'ls -als /work && ls -als /work/* && cd /work && makepkg --noconfirm -si && mksrcinfo'"
 
 deploy:
