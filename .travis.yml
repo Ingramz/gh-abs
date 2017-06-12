@@ -1,0 +1,15 @@
+services:
+  - docker
+
+before_install:
+- docker pull base/archlinux:latest
+
+script:
+- docker run base/archlinux:latest -v $(pwd):/repo -v $(pwd)/tmp:/pkgtmp /bin/sh -c "cp -R /repo /pkgtmp && cd /pkgtmp && makepkg -s && useradd -u 1000 -d /home/makepkg -m makepkg && chown -R makepkg /work /home/makepkg && pacman -Syu --noconfirm && su -l makepkg -c "git config --global user.name Make Pkg" && su -l makepkg -c "git config --global user.email example@example.com" && su -l makepkg -c "cd /work && makepkg --noconfirm -si && mksrcinfo"
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
