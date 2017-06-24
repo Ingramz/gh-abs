@@ -1,5 +1,5 @@
 pkgname=rar2fs
-pkgver=1.25.1
+pkgver=1.25.2
 pkgrel=1
 pkgdesc="Fuse file system for reading Rar archives"
 arch=("i686" "x86_64")
