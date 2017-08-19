@@ -15,7 +15,7 @@ depends=("fuse" "libunrar=1:5.5.8")
 source=(    "https://github.com/hasse69/rar2fs/releases/download/v$pkgver/rar2fs-$pkgver.tar.gz"
             "http://www.rarlab.com/rar/unrarsrc-5.5.8.tar.gz")
 sha256sums=('57bb77e3de9fb9376c6b95d139ec9b1c9e20cf7326a6d627f1480d07076e1ff4'
-            '8aef0a0d91bf9c9ac48fab8a26049ac7ac49907e75a2dcbd511a4ba375322d8f')
+            '9b66e4353a9944bc140eb2a919ff99482dd548f858f5e296d809e8f7cdb2fcf4')
 
 build() {
     cd "$srcdir/$pkgname-$pkgver"
