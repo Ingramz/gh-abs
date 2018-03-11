@@ -16,6 +16,8 @@ script:
 - sudo mv /work/*.pkg.tar.xz /out
 
 deploy:
+  edge:
+    branch: v1.8.47
   provider: pages
   verbose: true
   skip-cleanup: true
