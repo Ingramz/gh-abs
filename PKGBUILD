@@ -19,7 +19,7 @@ sha256sums=('8b8f89bc715690dc67f6d5f66dac6ae4c4338ff960f5cfd0f46cfa666be570f1'
 
 build() {
     cd "$srcdir/$pkgname-$pkgver"
-    ./configure --prefix=/usr --sbindir=/usr/bin --with-unrar=../unrar
+    ./configure --prefix=/usr --sbindir=/usr/bin --with-unrar=../unrar --with-fuse=/usr/include/fuse3
     make
 }
 
