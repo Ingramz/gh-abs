@@ -9,7 +9,8 @@ url="https://github.com/hasse69/rar2fs"
 url="https://hasse69.github.io/rar2fs/"
 depends=("fuse" "libunrar=1:$_unrarver")
 
-source=("https://github.com/hasse69/rar2fs/releases/download/v$pkgver/rar2fs-$pkgver.tar.gz"
+source=("https://github.com/hasse69/rar2fs/archive/v$pkgver.tar.gz"
+#        "https://github.com/hasse69/rar2fs/releases/download/v$pkgver/rar2fs-$pkgver.tar.gz"
         "http://www.rarlab.com/rar/unrarsrc-$_unrarver.tar.gz")
 sha256sums=("8e53827683438c77868b6d73408e0bb39b42cae91b3a8b6a0153bdd1a319de02"
             "3591685c8f5bbcb0be09de3d0a0544adb88966b9cccb80986f6cd2b534fd91a6")
