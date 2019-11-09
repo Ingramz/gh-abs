@@ -1,21 +1,18 @@
 pkgname=rar2fs
-pkgver=1.27.2
-pkgrel=4
+pkgver=1.28.0
+pkgrel=1
+_unrarver=5.8.3
 pkgdesc="Fuse file system for reading Rar archives"
 arch=("i686" "x86_64")
 license=("GPL3")
+url="https://github.com/hasse69/rar2fs"
 url="https://hasse69.github.io/rar2fs/"
+depends=("fuse" "libunrar=1:$_unrarver")
 
-# The "rar2fs" program loads the "libunrar" library at run time
-# using the exact version (5.m.n) installed at build time.
-# Also, the "libunrar" source code that "rar2fs" is built with
-# should probably be the same version that is installed.
-depends=("fuse" "libunrar=1:5.8.3")
-
-source=(    "https://github.com/hasse69/rar2fs/releases/download/v$pkgver/rar2fs-$pkgver.tar.gz"
-            "http://www.rarlab.com/rar/unrarsrc-5.8.3.tar.gz")
-sha256sums=('2e9452751f7e2d349ed8ea525a62b00ab50504e15337f1bb162bf2cacfa88a55'
-            '3591685c8f5bbcb0be09de3d0a0544adb88966b9cccb80986f6cd2b534fd91a6')
+source=("https://github.com/hasse69/rar2fs/releases/download/v$pkgver/rar2fs-$pkgver.tar.gz"
+        "http://www.rarlab.com/rar/unrarsrc-$_unrarver.tar.gz")
+sha256sums=("8e53827683438c77868b6d73408e0bb39b42cae91b3a8b6a0153bdd1a319de02"
+            "3591685c8f5bbcb0be09de3d0a0544adb88966b9cccb80986f6cd2b534fd91a6")
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
