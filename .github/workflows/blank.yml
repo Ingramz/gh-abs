@@ -22,7 +22,7 @@ jobs:
 
     - name: Build Package
       id: builder
-      uses: Ingramz/archlinux-abs
+      uses: Ingramz/archlinux-abs@master
       with:
           PRIVATE_KEY: ${{ secrets.PACAKGE_SIGNING_KEY }}
           PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
